@@ -1,0 +1,1 @@
+mex -output maxflow  mymaxflow.cpp ./maxflow-v2.2.src/forward_star/*.cpp -I./maxflow-v2.2.src/forward_star

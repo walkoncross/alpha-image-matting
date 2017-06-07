@@ -1,0 +1,53 @@
+###################################################################
+#                                                                 #
+#    Spectral Clustering - software for unsupervised computation  #
+#         of matting components, and grouping these components to #
+#         a Foreground / Background alpha matte.                   #
+#    http://www.vision.huji.ac.il/SpectralMatting                 #
+#                                                                 #
+#    Anat Levin, Alex Rav-Acha, Dani Lischinski                   #
+#    2007                                                         #
+#                                                                 #
+###################################################################
+
+1. Introduction.
+#################
+
+This software library implements the spectral clustering algorithm
+described in:
+     Spectral Matting
+     Anat Levin, Alex Rav-Acha and Dani Lischinski, 
+     In IEEE Computer Society Conference on Computer Vision and 
+     Pattern Recognition (CVPR), June 2007.
+
+This software can be used freely for research purposes.
+This code has been compiled and tasted using matlab7. We noticed
+problems with earlier matlab versions.
+
+For the components-grouping we wrapped to matlab the 'mincut' library of
+Vladimir Kolmogorov (vnk@cs.cornell.edu) and Yuri Boykov (yuri@csd.uwo.ca),
+described in
+     An Experimental Comparison of Min-Cut/Max-Flow Algorithms
+     for Energy Minimization in Vision.
+     Yuri Boykov and Vladimir Kolmogorov.
+     In IEEE Transactions on Pattern Analysis and Machine Intelligence (PAMI), 
+     September 2004
+
+(This software is also available at: 
+http://www.cs.cornell.edu/People/vnk/software.html)
+
+Note: When a small number of clusters is used, the code can be 
+run without compiling the max-flow code.
+
+2. How to use.
+################
+
+a. Compile the mincut library using 'compile_mincut'. As mentioned before, 
+   this is not needed when using a small number of clusters.
+
+b. To re-create some of the examples that were shown in the paper,
+   use 'runAll'.
+
+c. To compute only alpha components (without grouping), one can use:
+     alpha_comps = SpectralMatting(prefix, downSmp, [], eigs_num, nclust);
+
